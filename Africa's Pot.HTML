@@ -1,0 +1,382 @@
+�
+
+�
+Africa's Pot | Authentic African Cuisine
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Tailwind Config -->
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'brand-black': '#1a1a1a',
+                    'brand-dark': '#2c2420',
+                    'brand-gold': '#d4af37',
+                    'brand-orange': '#c85a17',
+                    'brand-cream': '#f4f1ea',
+                },
+                fontFamily: {
+                    'serif': ['"Playfair Display"', 'serif'],
+                    'sans': ['"Lato"', 'sans-serif'],
+                }
+            }
+        }
+    }
+</script>
+
+<style>
+    /* Custom Styles */
+    body {
+        background-color: #1a1a1a;
+        color: #f4f1ea;
+        overflow-x: hidden;
+    }
+    
+    .glass-nav {
+        background: rgba(26, 26, 26, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .hero-overlay {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(26,26,26,1));
+    }
+
+    .menu-card {
+        transition: all 0.3s ease;
+    }
+    
+    .menu-card:hover {
+        transform: translateY(-5px);
+        border-color: #d4af37;
+    }
+
+    .btn-shine {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-shine::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: 0.5s;
+    }
+
+    .btn-shine:hover::after {
+        left: 100%;
+    }
+
+    /* Map Filter to match dark theme */
+    .map-container iframe {
+        filter: grayscale(100%) invert(92%) contrast(83%);
+        border-radius: 1rem;
+    }
+
+    /* Tab Buttons */
+    .tab-btn {
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    .tab-btn.active {
+        background-color: #d4af37;
+        color: #1a1a1a;
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #d4af37;
+        border-radius: 5px;
+    }
+</style>
+�
+
+<!-- Navigation -->
+<nav class="glass-nav fixed w-full z-50 transition-all duration-300" id="navbar">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-2xl font-serif font-bold text-brand-gold flex items-center gap-2">
+            <i class="fas fa-utensils"></i> Africa's Pot
+        </a>
+        <div class="flex space-x-8 font-sans text-sm tracking-wider">
+            <a href="#menu" class="hover:text-brand-gold transition-colors">MENU</a>
+            <a href="#about" class="hover:text-brand-gold transition-colors">ABOUT</a>
+            <a href="#location" class="hover:text-brand-gold transition-colors">LOCATION</a>
+        </div>
+        <a href="#order" class="px-6 py-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-black transition-all duration-300 rounded-full text-sm font-bold btn-shine">
+            ORDER NOW
+        </a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1574484284008-be9d62827022?q=80&w=2070&auto=format&fit=crop" alt="African Food Jollof" class="w-full h-full object-cover opacity-60">
+    </div>
+    <div class="absolute inset-0 hero-overlay z-10"></div>
+    
+    <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+        <h2 class="gsap-hero-sub text-brand-gold tracking-[0.2em] mb-4 text-sm md:text-base uppercase">Authentic Taste of Lagos</h2>
+        <h1 class="gsap-hero-title font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white">
+            Taste the Soul of <br><span class="text-brand-orange italic">Africa</span>
+        </h1>
+        <p class="gsap-hero-text text-gray-300 text-lg mb-10 max-w-2xl mx-auto font-light">
+            Experience the rich heritage of African cuisine right here in Isolo. From spicy pepper soups to the legendary Jollof.
+        </p>
+        <div class="gsap-hero-btn flex flex-col md:flex-row gap-4 justify-center">
+            <a href="#order" class="px-8 py-4 bg-brand-gold text-brand-black font-bold rounded-full hover:bg-white transition-all btn-shine">
+                Start Your Order
+            </a>
+            <a href="#menu" class="px-8 py-4 border border-white text-white font-bold rounded-full hover:bg-white hover:text-brand-black transition-all">
+                View Menu
+            </a>
+        </div>
+    </div>
+    
+    <!-- Scroll Down Indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+        <i class="fas fa-chevron-down text-brand-gold text-2xl"></i>
+    </div>
+</section>
+
+<!-- Operating Hours Banner -->
+<div class="bg-brand-gold text-brand-black py-3 z-30 relative">
+    <div class="container mx-auto px-4 flex justify-center items-center gap-6 text-sm font-bold flex-wrap">
+        <span class="flex items-center gap-2"><i class="far fa-clock"></i> Open Daily (Except Thu): 9:00 AM - 10:00 PM</span>
+        <span class="hidden md:inline">|</span>
+        <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> 1 Olakunle Selesi Cres, Isolo</span>
+    </div>
+</div>
+
+<!-- Menu Categories -->
+<section id="menu" class="py-20 bg-brand-black relative">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="text-brand-orange uppercase tracking-widest text-sm">Our Specialties</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mt-2 text-brand-cream">The Menu</h2>
+            <div class="w-24 h-1 bg-brand-gold mx-auto mt-6"></div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16" id="menu-tabs">
+            <button class="tab-btn active px-6 py-2 rounded-full border border-brand-gold text-brand-gold font-bold hover:bg-brand-gold hover:text-brand-black" onclick="filterMenu('all', this)">All</button>
+            <button class="tab-btn px-6 py-2 rounded-full border border-brand-gold text-brand-gold font-bold hover:bg-brand-gold hover:text-brand-black" onclick="filterMenu('rice', this)">Rice Dishes</button>
+            <button class="tab-btn px-6 py-2 rounded-full border border-brand-gold text-brand-gold font-bold hover:bg-brand-gold hover:text-brand-black" onclick="filterMenu('soup', this)">Soups</button>
+            <button class="tab-btn px-6 py-2 rounded-full border border-brand-gold text-brand-gold font-bold hover:bg-brand-gold hover:text-brand-black" onclick="filterMenu('peppersoup', this)">Pepper Soups</button>
+            <button class="tab-btn px-6 py-2 rounded-full border border-brand-gold text-brand-gold font-bold hover:bg-brand-gold hover:text-brand-black" onclick="filterMenu('drinks', this)">Drinks</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto" id="menu-grid">
+            
+            <!-- Rice Item -->
+            <div class="menu-card bg-brand-dark rounded-xl p-8 border border-white/5 flex flex-col justify-center items-start h-full" data-category="rice">
+                <div class="w-full flex justify-between items-start mb-4">
+                    <h3 class="font-serif text-2xl font-bold text-brand-gold">Rice Dishes</h3>
+                    <i class="fas fa-bowl-rice text-brand-orange text-2xl"></i>
+                </div>
+                <div class="w-full border-t border-white/10 my-4"></div>
+                <ul class="text-gray-300 space-y-2 w-full">
+                    <li class="flex justify-between"><span>Smoky Party Jollof</span></li>
+                    <li class="flex justify-between"><span>Fried Rice</span></li>
+                    <li class="flex justify-between"><span>Ofada Rice</span></li>
+                </ul>
+                <p class="text-gray-500 text-sm mt-4 italic">Served with plantains and your choice of protein.</p>
+            </div>
+
+            <!-- Soup Item -->
+            <div class="menu-card bg-brand-dark rounded-xl p-8 border border-white/5 flex flex-col justify-center items-start h-full" data-category="soup">
+                <div class="w-full flex justify-between items-start mb-4">
+                    <h3 class="font-serif text-2xl font-bold text-brand-gold">Traditional Soups</h3>
+                    <i class="fas fa-spoon text-brand-orange text-2xl"></i>
+                </div>
+                <div class="w-full border-t border-white/10 my-4"></div>
+                <ul class="text-gray-300 space-y-2 w-full">
+                    <li class="flex justify-between"><span>White Soup (Large Dry Fish)</span></li>
+                    <li class="flex justify-between"><span>Egusi Soup</span></li>
+                    <li class="flex justify-between"><span>Afang Soup</span></li>
+                    <li class="flex justify-between"><span>White Soup (Assorted)</span></li>
+                    <li class="flex justify-between"><span>Ogbono Soup</span></li>
+                    <li class="flex justify-between"><span>Bitterleaf Soup</span></li>
+                    <li class="flex justify-between"><span>White Soup (Fresh Fish)</span></li>
+                    <li class="flex justify-between"><span>Okoro Soup</span></li>
+                    <li class="flex justify-between"><span>Efo Riro</span></li>
+                    <li class="flex justify-between"><span>Vegetable Soup</span></li>
+                </ul>
+                <p class="text-gray-500 text-sm mt-4 italic">Made with authentic spices and assorted meats.</p>
+            </div>
+
+            <!-- Pepper Soup Item -->
+            <div class="menu-card bg-brand-dark rounded-xl p-8 border border-white/5 flex flex-col justify-center items-start h-full" data-category="peppersoup">
+                <div class="w-full flex justify-between items-start mb-4">
+                    <h3 class="font-serif text-2xl font-bold text-brand-gold">Pepper Soups</h3>
+                    <i class="fas fa-fire text-brand-orange text-2xl"></i>
+                </div>
+                <div class="w-full border-t border-white/10 my-4"></div>
+                <ul class="text-gray-300 space-y-2 w-full">
+                    <li class="flex justify-between"><span>Catfish Pepper Soup</span></li>
+                    <li class="flex justify-between"><span>Goat Meat Pepper Soup</span></li>
+                    <li class="flex justify-between"><span>Assorted Meat Pepper Soup</span></li>
+                </ul>
+                <p class="text-gray-500 text-sm mt-4 italic">Hot, spicy broth to clear your eyes.</p>
+            </div>
+
+            <!-- Drinks Item -->
+            <div class="menu-card bg-brand-dark rounded-xl p-8 border border-white/5 flex flex-col justify-center items-start h-full" data-category="drinks">
+                <div class="w-full flex justify-between items-start mb-4">
+                    <h3 class="font-serif text-2xl font-bold text-brand-gold">The Bar</h3>
+                    <i class="fas fa-glass-martini-alt text-brand-orange text-2xl"></i>
+                </div>
+                <div class="w-full border-t border-white/10 my-4"></div>
+                <ul class="text-gray-300 space-y-2 w-full">
+                    <li class="flex justify-between"><span>Soft Drinks</span></li>
+                    <li class="flex justify-between"><span>Fresh Fruit Juice</span></li>
+                    <li class="flex justify-between"><span>Light Alcohol</span></li>
+                </ul>
+                <p class="text-gray-500 text-sm mt-4 italic">Served chilled to perfection.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Ordering Section -->
+<section id="order" class="py-24 relative overflow-hidden">
+    <!-- Decorative bg -->
+    <div class="absolute top-0 left-0 w-full h-full bg-brand-dark opacity-90 z-0"></div>
+    <div class="absolute inset-0 z-0" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); opacity: 0.1;"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl mx-auto bg-brand-black/80 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-brand-gold/30 shadow-2xl text-center">
+            <h2 class="font-serif text-3xl md:text-5xl font-bold text-brand-gold mb-6">Ready to Eat?</h2>
+            <p class="text-gray-300 mb-10 text-lg">Choose how you want to enjoy your meal. We are just a WhatsApp message away.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Delivery Option -->
+                <a href="https://wa.me/2349034105688?text=Hello%20Africa's%20Pot,%20I%20would%20like%20to%20place%20an%20order%20for%20delivery" target="_blank" class="group relative overflow-hidden bg-brand-orange hover:bg-orange-700 rounded-xl p-6 transition-all duration-300 transform hover:-translate-y-2 border border-transparent hover:border-brand-gold">
+                    <div class="relative z-10 flex flex-col items-center">
+                        <i class="fas fa-motorcycle text-4xl mb-4 text-white"></i>
+                        <h3 class="text-xl font-bold mb-2">Home Delivery</h3>
+                        <p class="text-sm text-white/90 mb-4">We bring the pot to your doorstep.</p>
+                        <span class="inline-block bg-white text-brand-orange px-4 py-2 rounded-full font-bold text-sm">
+                            <i class="fab fa-whatsapp"></i> Chat to Order
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Pickup Option -->
+                <a href="https://wa.me/2348163274578?text=Hello%20Africa's%20Pot,%20I%20would%20like%20to%20order%20ahead" target="_blank" class="group relative overflow-hidden bg-brand-gold hover:bg-yellow-500 rounded-xl p-6 transition-all duration-300 transform hover:-translate-y-2 border border-transparent hover:border-white">
+                    <div class="relative z-10 flex flex-col items-center">
+                        <i class="fas fa-walking text-4xl mb-4 text-brand-black"></i>
+                        <h3 class="text-xl font-bold mb-2 text-brand-black">Order Ahead</h3>
+                        <p class="text-sm text-brand-black/80 mb-4">Skip the wait, pick it up hot.</p>
+                        <span class="inline-block bg-brand-black text-brand-gold px-4 py-2 rounded-full font-bold text-sm">
+                            <i class="fab fa-whatsapp"></i> Order Pickup
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Location & Info Section -->
+<section id="location" class="py-20 bg-brand-black border-t border-brand-gold/10">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+            
+            <!-- Text Info -->
+            <div class="w-full lg:w-1/2 space-y-8">
+                <h2 class="font-serif text-4xl font-bold text-brand-gold">Visit Us</h2>
+                <p class="text-gray-400">Come experience the ambiance of Africa's Pot. Perfect for family dinners, quick lunches, or just chilling with a bowl of pepper soup.</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-dark flex items-center justify-center text-brand-gold shrink-0">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Address</h4>
+                            <p class="text-gray-400">1 Olakunle Selesi Cres, Isolo, Lagos 102214, Lagos</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-dark flex items-center justify-center text-brand-gold shrink-0">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Opening Hours</h4>
+                            <p class="text-gray-400">Monday - Sunday (Closed Thu)</p>
+                            <p class="text-brand-gold font-bold">9:00 am - 10:00 pm</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-dark flex items-center justify-center text-brand-gold shrink-0">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Contact</h4>
+                            <p class="text-gray-400">0816 327 4578 (Orders)</p>
+                            <p class="text-gray-400">0903 410 5688 (Delivery)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Map -->
+            <div class="w-full lg:w-1/2 h-[400px] map-container shadow-2xl bg-brand-dark rounded-2xl p-2 border border-brand-gold/20">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.3323088757041235!3d6.527632993465059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8c32607421c9%3A0xe5435985025d2c2!2s1%20Olakunle%20Selesi%20Crescent%2C%20Ilasamaja%2C%20Lagos%20102214%2C%20Lagos%2C%20Nigeria!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-20 bg-brand-dark relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5" style="background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-brand-orange uppercase tracking-widest text-sm">Our Story</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mt-2 mb-8 text-brand-cream">About Africa's Pot</h2>
+            <div class="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
+            
+            <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+                At Africa's Pot, we bring the authentic flavors of West Africa to the heart of Lagos. Our chefs use time-honored recipes passed down through generations, combined with fresh, locally-sourced ingredients to create dishes that transport you straight to the villages and bustling markets of Nige
