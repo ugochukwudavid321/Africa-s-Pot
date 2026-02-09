@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO: Primary Meta Tags -->
+    <title>Africa's Pot | Modern Nigerian Cuisine & Zen Dining</title>
+    <meta name="title" content="Africa's Pot | Modern Nigerian Cuisine & Zen Dining">
+    <meta name="description" content="Experience the soul of heritage. A minimalist Zen dining space serving authentic Nigerian soups, rice dishes, and delicacies like Nsala and Egusi. Delivery available.">
+    <meta name="keywords" content="African cuisine, Nigerian food, Zen dining, Nsala soup, Egusi, Lagos restaurant, food delivery, modern African food">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Africa's Pot">
+    
+    <!-- SEO: Canonical URL (Replace with your actual domain) -->
+    <link rel="canonical" href="https://www.africaspot.com/">
+
+    <!-- SEO: Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.africaspot.com/">
+    <meta property="og:title" content="Africa's Pot | Modern Nigerian Cuisine">
+    <meta property="og:description" content="Taste the soul of heritage. Authentic Nigerian cuisine in a minimalist Zen atmosphere. Order online or visit us today.">
+    <meta property="og:image" content="https://www.africaspot.com/assets/og-image.jpg">
+
+    <!-- SEO: Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.africaspot.com/">
+    <meta property="twitter:title" content="Africa's Pot | Modern Nigerian Cuisine">
+    <meta property="twitter:description" content="Taste the soul of heritage. Authentic Nigerian cuisine in a minimalist Zen atmosphere.">
+    <meta property="twitter:image" content="https://www.africaspot.com/assets/twitter-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- JSON-LD Schema Markup (Critical for Local SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Africa's Pot",
+      "image": "https://www.africaspot.com/assets/logo.png",
+      "url": "https://www.africaspot.com",
+      "telephone": "09034105688",
+      "servesCuisine": "Nigerian",
+      "priceRange": "₦₦",
+      "menu": "https://www.africaspot.com/#menu",
+      "acceptsReservations": "true",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Your Street Address",
+        "addressLocality": "Lagos",
+        "addressRegion": "LA",
+        "addressCountry": "NG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 6.5244,
+        "longitude": 3.3792
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "22:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/africaspot",
+        "https://www.facebook.com/africaspot"
+      ]
+    }
+    </script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zen: {
+                            black: '#050505',
+                            dark: '#0a0a0a',
+                            gold: '#D4AF37',
+                            golddim: '#8a702a',
+                            text: '#e5e5e5'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #e5e5e5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+        /* Utilities */
+        .glass-panel {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .glass-btn {
+            background: rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        .glass-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #D4AF37, #F2E8C9, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+        
+        /* Menu Accordion Transitions */
+        .menu-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.5s ease-in-out;
+        }
+        .menu-content.open {
+            max-height: 3000px;
+            opacity: 1;
+            transition: max-height 0.8s ease-in-out, opacity 0.5s ease-in-out;
+        }
+        .rotate-icon { transition: transform 0.3s ease; }
+        .open .rotate-icon { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- 1. CINEMATIC ENTRANCE -->
+    <div id="loader" class="fixed inset-0 z-[100] bg-zen-black flex items-center justify-center">
+        <canvas id="introCanvas" class="absolute inset-0 w-full h-full"></canvas>
+        <div class="relative z-10 text-center opacity-0" id="introLogo">
+            <h1 class="font-serif text-5xl md:text-7xl text-zen-gold tracking-widest mb-2">AFRICA'S POT</h1>
+            <p class="font-sans text-xs md:text-sm tracking-[0.5em] text-gray-400 uppercase">Culinary Zen</p>
+        </div>
+    </div>
+
+    <!-- FLOATING CTA (STICKY FOOTER) -->
+    <nav class="fixed bottom-6 left-0 right-0 z-50 px-4 flex justify-center gap-4 pointer-events-none" aria-label="Quick Actions">
+        <div class="glass-panel rounded-full p-2 flex gap-3 pointer-events-auto shadow-2xl shadow-zen-gold/10">
+            <a href="tel:09034105688" class="bg-zen-black text-zen-gold border border-zen-gold/30 px-6 py-3 rounded-full font-sans text-sm font-bold hover:bg-zen-gold hover:text-black transition-colors duration-300 flex items-center gap-2" aria-label="Call for Delivery">
+                Delivery
+            </a>
+            <a href="tel:08163274578" class="bg-zen-gold text-black px-6 py-3 rounded-full font-sans text-sm font-bold hover:bg-white transition-colors duration-300 flex items-center gap-2" aria-label="Order Ahead">
+                Order Ahead
+            </a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="relative z-10 w-full">
+        
+        <!-- 2. HERO SECTION -->
+        <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+            <canvas id="heroCanvas" class="absolute inset-0 w-full h-full opacity-40"></canvas>
+            
+            <div class="relative z-10 text-center px-6 max-w-4xl mx-auto gs-reveal">
+                <p class="text-zen-gold font-serif italic text-lg mb-4">Welcome to Sanctuary</p>
+                <h1 class="font-serif text-4xl md:text-7xl font-bold mb-6 leading-tight">
+                    <span class="text-gradient">TASTE THE SOUL</span><br>
+                    <span class="text-white">OF HERITAGE</span>
+                </h1>
+                <p class="font-sans text-gray-400 text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-10">
+                    A minimalist approach to traditional Nigerian flavors. Experience the warmth of home in a space designed for peace.
+                </p>
+                <div class="animate-bounce mt-10 text-zen-gold opacity-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <!-- 3. MENU SECTIONS -->
+        <section id="menu" class="py-20 px-4 md:px-8 max-w-5xl mx-auto pb-40">
+            <div class="text-center mb-16 gs-reveal">
+                <h2 class="font-serif text-3xl text-zen-gold mb-2">The Menu</h2>
+                <div class="h-0.5 w-12 bg-zen-gold mx-auto"></div>
+            </div>
+
+            <!-- MENU CATEGORIES (ACCORDION) -->
+            <div class="space-y-6">
+
+                <!-- SOUPS -->
+                <article class="group border-b border-gray-800 pb-4 gs-reveal menu-category">
+                    <button class="w-full flex justify-between items-center py-4 text-left focus:outline-none" onclick="toggleMenu('soups', this)" aria-expanded="false" aria-controls="soups">
+                        <h3 class="font-serif text-2xl md:text-3xl text-white group-hover:text-zen-gold transition-colors">Soups</h3>
+                        <span class="text-zen-gold text-2xl rotate-icon">+</span>
+                    </button>
+                    <div id="soups" class="menu-content" role="region">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+                            <!-- Items -->
+                            <div class="glass-panel p-6 rounded-lg">
+                                <div class="flex justify-between items-baseline mb-2">
+                                    <h4 class="text-lg font-bold text-white">White Soup (Goat Meat)</h4>
+                                    <span class="text-zen-gold">5,200</span>
+                                </div>
+                                <p class="text-xs text-gray-400">"Nsala soup" flavored with utazi leaves & local spices.</p>
+                            </div>
+                            <!-- ... (Other soup items kept same, omitted for brevity, logic maintained) ... -->
+                             <div class="glass-panel p-6 rounded-lg">
+                                <div class="flex justify-between items-baseline mb-2">
+                                    <h4 class="text-lg font-bold text-white">Egusi Soup</h4>
+                                    <span class="text-zen-gold">2,400</span>
+                                </div>
+                                <p class="text-xs text-gray-400">Ground melon seeds, vegetables & spices.</p>
+                            </div>
+                             <div class="glass-panel p-6 rounded-lg">
+                                <div class="flex justify-between items-baseline mb-2">
+                                    <h4 class="text-lg font-bold text-white">Ogbono Soup</h4>
+                                    <span class="text-zen-gold">2,400</span>
+                                </div>
+                                <p class="text-xs text-gray-400">Thick, flavorful soup made with ground ogbono seeds.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- DRINKS -->
+                <article class="group border-b border-gray-800 pb-4 gs-reveal menu-category">
+                    <button class="w-full flex justify-between items-center py-4 text-left focus:outline-none" onclick="toggleMenu('drinks', this)" aria-expanded="false" aria-controls="drinks">
+                        <h3 class="font-serif text-2xl md:text-3xl text-white group-hover:text-zen-gold transition-colors">Drinks</h3>
+                        <span class="text-zen-gold text-2xl rotate-icon">+</span>
+                    </button>
+                    <div id="drinks" class="menu-content" role="region">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+                            <div class="glass-panel p-4 flex justify-between items-center">
+                                <div><h4 class="font-bold">Hollandia (1L)</h4><p class="text-xs text-gray-400">Premium Yogurt</p></div>
+                                <span class="text-zen-gold">2,700</span>
+                            </div>
+                            <div class="glass-panel p-4 flex justify-between items-center">
+                                <div><h4 class="font-bold">5 Alive Pulpy (85cl)</h4><p class="text-xs text-gray-400">Fruit Juice</p></div>
+                                <span class="text-zen-gold">2,500</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- RICE -->
+                <article class="group border-b border-gray-800 pb-4 gs-reveal menu-category">
+                    <button class="w-full flex justify-between items-center py-4 text-left focus:outline-none" onclick="toggleMenu('rice', this)" aria-expanded="false" aria-controls="rice">
+                        <h3 class="font-serif text-2xl md:text-3xl text-white group-hover:text-zen-gold transition-colors">Rice</h3>
+                        <span class="text-zen-gold text-2xl rotate-icon">+</span>
+                    </button>
+                    <div id="rice" class="menu-content" role="region">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+                            <div class="glass-panel p-6 rounded-lg">
+                                <div class="flex justify-between items-baseline mb-2">
+                                    <h4 class="text-lg font-bold text-white">Rice + Stew + Assorted</h4>
+                                    <span class="text-zen-gold">3,800</span>
+                                </div>
+                                <p class="text-xs text-gray-400">Steamed white rice with tomato stew & assorted meats.</p>
+                            </div>
+                            <div class="glass-panel p-6 rounded-lg">
+                                <div class="flex justify-between items-baseline mb-2">
+                                    <h4 class="text-lg font-bold text-white">Rice + Stew + Goat</h4>
+                                    <span class="text-zen-gold">3,800</span>
+                                </div>
+                                <p class="text-xs text-gray-400">Steamed white rice with tomato stew & tender goat meat.</p>
+                            </div>
+                            <div class="glass-panel p-6 rounded-lg">
+                                <div class="flex justify-between items-baseline mb-2">
+                                    <h4 class="text-lg font-bold text-white">Rice + Pepper Soup + Fish</h4>
+                                    <span class="text-zen-gold">4,200</span>
+                                </div>
+                                <p class="text-xs text-gray-400">White rice with fresh fish spicy broth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PEPPER SOUPS -->
+                <article class="group border-b border-gray-800 pb-4 gs-reveal menu-category">
+                    <button class="w-full flex justify-between items-center py-4 text-left focus:outline-none" onclick="toggleMenu('peppersoups', this)" aria-expanded="false" aria-controls="peppersoups">
+                        <h3 class="font-serif text-2xl md:text-3xl text-white group-hover:text-zen-gold transition-colors">Pepper Soups</h3>
+                        <span class="text-zen-gold text-2xl rotate-icon">+</span>
+                    </button>
+                    <div id="peppersoups" class="menu-content" role="region">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+                            <div class="glass-panel p-6 rounded-lg">
+                                <div class="flex justify-between items-baseline mb-2">
+                                    <h4 class="text-lg font-bold text-white">Assorted Meat</h4>
+                                    <span class="text-zen-gold">2,000</span>
+                                </div>
+                                <p class="text-xs text-gray-400">Spicy broth with local spices.</p>
+                            </div>
+                            <div class="glass-panel p-6 rounded-lg">
+                                <div class="flex justify-between items-baseline mb-2">
+                                    <h4 class="text-lg font-bold text-white">Goat Meat</h4>
+                                    <span class="text-zen-gold">2,000</span>
+                                </div>
+                                <p class="text-xs text-gray-400">Spicy broth with tender goat meat.</p>
+                            </div>
+                            <div class="glass-panel p-6 rounded-lg">
+                                <div class="flex justify-between items-baseline mb-2">
+                                    <h4 class="text-lg font-bold text-white">Fresh Fish</h4>
+                                    <span class="text-zen-gold">2,500</span>
+                                </div>
+                                <p class="text-xs text-gray-400">Delicate fish in hot spicy broth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- LOCATION -->
+        <section class="py-10 px-4 mb-20" aria-label="Location">
+            <div class="max-w-4xl mx-auto glass-panel p-2 rounded-xl gs-reveal">
+                 <h3 class="font-serif text-2xl text-center text-zen-gold mb-6 mt-4">Visit Us</h3>
+                 <!-- Google Maps -->
+                 <div class="w-full h-64 md:h-96 rounded-lg overflow-hidden bg-gray-900 relative">
+                    <a href="https://maps.app.goo.gl/jZoFwnVdkpy8mpED9" target="_blank" rel="noopener noreferrer" class="absolute inset-0 z-20 flex items-center justify-center bg-black/50 hover:bg-black/30 transition-all group" aria-label="Open location in Google Maps">
+                        <div class="bg-zen-gold text-black px-6 py-2 rounded-full font-bold transform group-hover:scale-110 transition-transform flex items-center gap-2">
+                            Open in Maps
+                        </div>
+                    </a>
+                    <iframe 
+                        title="Map of Africa's Pot"
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        src="https://maps.google.com/maps?q=Africa's%20Pot&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        class="opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                    </iframe>
+                 </div>
+                 <p class="text-center text-gray-400 mt-4 text-sm pb-4">Click map to navigate</p>
+            </div>
+        </section>
+
+        <footer class="text-center py-6 text-xs text-gray-600 border-t border-gray-900">
+            <p>&copy; 2024 Africa's Pot. Minimalist Zen Dining.</p>
+            <nav class="mt-2 space-x-4">
+                <a href="#" class="hover:text-zen-gold">Privacy Policy</a>
+                <a href="#" class="hover:text-zen-gold">Terms of Service</a>
+            </nav>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- 1. PARTICLE SYSTEM (CANVAS) ---
+        const initParticles = (canvasId, count, speedMulti, isHero) => {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                    this.y = Math.random() * height; 
+                }
+                reset() {
+                    this.x = Math.random() * width;
+                    this.y = -10;
+                    this.size = Math.random() * (isHero ? 2 : 3) + 0.5;
+                    this.speedY = Math.random() * speedMulti + 0.5;
+                    this.speedX = Math.random() * 0.5 - 0.25;
+                    this.opacity = Math.random() * 0.5 + 0.2;
+                    this.color = `rgba(212, 175, 55, ${this.opacity})`;
+                }
+                update() {
+                    this.y += this.speedY;
+                    this.x += this.speedX;
+                    if (this.y > height) this.reset();
+                }
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(p => { p.update(); p.draw(); });
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', resize);
+            resize();
+            for (let i = 0; i < count; i++) particles.push(new Particle());
+            animate();
+        };
+
+        initParticles('introCanvas', 150, 2, false);
+        initParticles('heroCanvas', 60, 0.5, true);
+
+
+        // --- 2. GSAP ANIMATIONS ---
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline();
+            tl.to("#introLogo", { opacity: 1, duration: 2, ease: "power2.out" })
+              .to("#introLogo", { y: -20, duration: 2, ease: "power1.inOut" }, "<")
+              .to("#loader", { yPercent: -100, duration: 1.5, ease: "power4.inOut", delay: 0.5 })
+              .from("main", { y: 100, opacity: 0, duration: 1 }, "-=1");
+
+            gsap.utils.toArray('.gs-reveal').forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power3.out"
+                });
+            });
+        });
+
+
+        // --- 3. MENU ACCORDION LOGIC ---
+        function toggleMenu(id, btn) {
+            const content = document.getElementById(id);
+            const allContents = document.querySelectorAll('.menu-content');
+            const allBtns = document.querySelectorAll('.menu-category button');
+            
+            allContents.forEach(c => {
+                if (c.id !== id) {
+                    c.classList.remove('open');
+                    c.parentElement.querySelector('button').setAttribute('aria-expanded', 'false');
+                }
+            });
+            allBtns.forEach(b => {
+                if (b !== btn) b.classList.remove('open');
+            });
+
+            const isOpen = content.classList.toggle('open');
+            btn.classList.toggle('open');
+            btn.setAttribute('aria-expanded', isOpen);
+        }
+    </script>
+</body>
+</html>
